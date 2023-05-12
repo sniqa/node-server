@@ -1,0 +1,8 @@
+@url=http://localhost:8000
+@json=Content-Type: application/json
+
+###
+POST {{url}}/create_account
+{{json}}
+
+{"account": "t", "password": ""}
