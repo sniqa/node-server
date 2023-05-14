@@ -1,26 +1,30 @@
-import fastify from "fastify";
-import cors from "@fastify/cors";
-import mongodb from "@fastify/mongodb";
-import { client } from "../utils/mongodb.js";
-import { create_account } from "./controllers/create.js";
-import { faildResult2 } from "#utils/response.js";
+import { fastifyHandler } from '#utils/fastify.js'
+import cors from '@fastify/cors'
+import mongodb from '@fastify/mongodb'
+import fastify from 'fastify'
+import { client } from '../utils/mongodb.js'
+import { create_account } from './controllers/create.js'
+import { delete_account } from './controllers/delete.js'
+import { find_accounts } from './controllers/find.js'
+import { login } from './controllers/login.js'
+import { update_account } from './controllers/update.js'
 
-const app = fastify({ logger: true });
+const app = fastify({ logger: true })
 
-app.register(cors);
+app.register(cors)
 
 app.register(mongodb, {
-  client,
-});
+	client,
+})
 
-app.post("/create_account", async (req, res) => {
-  const body = req.body;
+app.post('/create_account', fastifyHandler(create_account))
 
-  const result = await create_account(body as any).catch((res) =>
-    faildResult2(res)
-  );
+app.post('/find_accounts', fastifyHandler(find_accounts))
 
-  res.send(result);
-});
+app.post('/update_account', fastifyHandler(update_account))
 
-app.listen({ port: 8000 });
+app.post('/delete_account', fastifyHandler(delete_account))
+
+app.post('/login', fastifyHandler(login))
+
+app.listen({ port: 8000 })

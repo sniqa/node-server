@@ -1,7 +1,7 @@
-import { connectDb } from "#utils/mongodb.js";
-import { AccountBase } from "#types/account.js";
+import { UserBase } from '#types/user.js'
+import { connectDb } from '#utils/mongodb.js'
 
-const db = connectDb("account");
+const db = connectDb('user')
 
 // mongodb account shcema
-export const AccountModel = db.collection<AccountBase>("accounts");
+export const UserModel = db.collection<UserBase>('users')

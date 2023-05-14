@@ -1,14 +1,24 @@
-import { AccountBase } from "#types/account.js";
-import { isExistInMongodb, Joi, validate } from "#utils/process.js";
-import { AccountModel } from "../db.js";
+import { UserBase } from '#types/user.js'
+import { hashSync } from '#utils/crypt.js'
+import { isExistInMongodb, Joi, validate } from '#utils/process.js'
+import { UserModel } from '../db.js'
 
 const validSchema = Joi.object({
-  account: Joi.string().required(),
-  password: Joi.string().required(),
-});
+	username: Joi.string().required(),
+	password: Joi.string().required(),
+})
 
-export const create_account = async (query: AccountBase) => {
-  validate(validSchema, query);
+export const create_account = async (query: UserBase) => {
+	validate(validSchema, query)
 
-  await isExistInMongodb(AccountModel, { account: query.account });
-};
+	await isExistInMongodb(() =>
+		UserModel.findOne({ username: query.username.trim() })
+	)
+
+	const account = await UserModel.insertOne({
+		...query,
+		password: hashSync(query.password),
+	})
+
+	return account.insertedId
+}

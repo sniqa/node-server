@@ -1,0 +1,8 @@
+@url=http://localhost:8100
+@json=Content-Type: application/json
+
+### create_network_group
+POST {{url}}/create_network_group
+{{json}}
+
+{}

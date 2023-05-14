@@ -5,4 +5,30 @@
 POST {{url}}/create_account
 {{json}}
 
-{"account": "t", "password": ""}
+{"account": "admin", "password": "e"}
+
+###
+POST {{url}}/find_accounts
+{{json}}
+
+{}
+
+
+###
+POST {{url}}/update_account
+{{json}}
+
+{"_id": "645e6c5fd91be4a4413ec1fa", "password": "1234"}
+
+
+###
+POST {{url}}/delete_account
+{{json}}
+
+{"_id": "645e6c5fd91be4a4413ec1fa"}
+
+###
+POST {{url}}/login
+{{json}}
+
+{"account": "admin", "password": "2"}
