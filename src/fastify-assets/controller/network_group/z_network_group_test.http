@@ -23,4 +23,4 @@ POST {{url}}/delete_network_group
 POST {{url}}/find_network_group
 {{json}}
 
-[{}, {}]
+[{}]

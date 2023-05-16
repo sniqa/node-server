@@ -7,16 +7,12 @@ POST {{url}}/find_ip_address
 
 [{}]
 
-### delete_network_group
-POST {{url}}/delete_network_group
+### update_ip_address
+POST {{url}}/update_ip_address
 {{json}}
 
 {
-    "_id": "6462fc9b928e619d4aefcbaf"
+    "_id": "645fbcaa2ad769d5c0b5ee3b",
+    "remark": "this is test remark"
 }
 
-### find_network_group
-POST {{url}}/find_network_group
-{{json}}
-
-[{}]
