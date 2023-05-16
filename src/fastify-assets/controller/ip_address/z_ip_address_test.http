@@ -1,0 +1,22 @@
+@url=http://localhost:8100
+@json=Content-Type: application/json
+
+### find_ip_address
+POST {{url}}/find_ip_address
+{{json}}
+
+[{}]
+
+### delete_network_group
+POST {{url}}/delete_network_group
+{{json}}
+
+{
+    "_id": "6462fc9b928e619d4aefcbaf"
+}
+
+### find_network_group
+POST {{url}}/find_network_group
+{{json}}
+
+[{}]

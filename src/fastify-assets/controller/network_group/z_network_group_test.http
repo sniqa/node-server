@@ -1,0 +1,26 @@
+@url=http://localhost:8100
+@json=Content-Type: application/json
+
+### create_network_group
+POST {{url}}/create_network_group
+{{json}}
+
+{
+    "group": "/专网3",
+    "firstAddress":"10.18.0.2",
+    "subnetMask": 28
+}
+
+### delete_network_group
+POST {{url}}/delete_network_group
+{{json}}
+
+{
+    "_id": "6462fc9b928e619d4aefcbaf"
+}
+
+### find_network_group
+POST {{url}}/find_network_group
+{{json}}
+
+[{}, {}]
