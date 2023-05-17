@@ -1,6 +1,6 @@
 import { IpAddressBase } from '#types/ip_address.js'
 import { NetworkGroupBase } from '#types/network_group.js'
-import { UserInfo } from '#types/user.js'
+import { UserAuth, UserInfo, UserRole } from '#types/user.js'
 import { connectDb } from '#utils/mongodb.js'
 
 const db = connectDb('assets')
@@ -13,4 +13,8 @@ export const NetworkGroupModel =
 	db.collection<NetworkGroupBase>('network_group')
 
 // mongodb user shcema
-export const UserModel = db.collection<UserInfo>('user')
+export const UserAuthModel = db.collection<UserAuth>('user_auths')
+
+export const UserInfoModel = db.collection<UserInfo>('user_infos')
+
+export const UserRoleModel = db.collection<UserRole>('user_roles')

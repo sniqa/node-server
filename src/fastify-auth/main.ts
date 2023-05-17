@@ -2,12 +2,12 @@ import { fastifyHandler } from '#utils/fastify.js'
 import cors from '@fastify/cors'
 import mongodb from '@fastify/mongodb'
 import fastify from 'fastify'
+import { create_account } from '../fastify-assets/controller/user/auth/create.js'
+import { delete_account } from '../fastify-assets/controller/user/auth/delete.js'
+import { find_accounts } from '../fastify-assets/controller/user/auth/find.js'
+import { login } from '../fastify-assets/controller/user/auth/login.js'
+import { update_account } from '../fastify-assets/controller/user/info/update.js'
 import { client } from '../utils/mongodb.js'
-import { create_account } from './controllers/create.js'
-import { delete_account } from './controllers/delete.js'
-import { find_accounts } from './controllers/find.js'
-import { login } from './controllers/login.js'
-import { update_account } from './controllers/update.js'
 
 const app = fastify({ logger: true })
 

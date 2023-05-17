@@ -14,7 +14,7 @@ export const delete_network_group = async (query: NetworkGroupWithId) => {
 
 	await isNotExistInMongodb(() => NetworkGroupModel.findOne(queryWithId))
 
-	IpAddressModel.deleteMany({ network_group_id: query._id })
+	IpAddressModel.deleteMany({ network_group_id: new ObjectId(query._id) })
 
 	const res = await NetworkGroupModel.deleteOne(queryWithId)
 

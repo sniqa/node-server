@@ -1,11 +1,11 @@
-@url=http://localhost:8000
+@url=http://localhost:8100
 @json=Content-Type: application/json
 
 ###
 POST {{url}}/create_account
 {{json}}
 
-{"account": "admin", "password": "e"}
+{"account": "admin3", "password": "e"}
 
 ###
 POST {{url}}/find_accounts
@@ -25,7 +25,7 @@ POST {{url}}/update_account
 POST {{url}}/delete_account
 {{json}}
 
-{"_id": "645e6c5fd91be4a4413ec1fa"}
+{"_id": "6464d3e9125ac82a7c820587"}
 
 ###
 POST {{url}}/login

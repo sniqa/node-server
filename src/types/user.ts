@@ -1,18 +1,31 @@
+import { ObjectId } from '@fastify/mongodb'
 import { WithId } from './common.js'
 
-export interface UserBase {
-	username: string
+export interface UserAuth {
+	account: string
 	password: string
+	create_time: number
+	last_login_time: number
+	user_info_id: ObjectId | ''
+	role_id: ObjectId | ''
+	state: boolean
 }
 
-export type UserWithId = UserBase & WithId
+export type UserAuthWithId = UserAuth & WithId
 
 export interface UserInfo {
-	user_id: string
-	department_id: string
-	real_name: string
-	nick_name: string
-	number: number
-	phone: number
-	role: string
+	username: string
+	user_id: ObjectId | ''
+	department_id: ObjectId | ''
+	realname: string
+	nickname: string
+	number: string
+	phone: string
+	remark: string
 }
+
+export type UserInfoWithId = UserInfo & WithId
+
+export interface UserRole {}
+
+export type UserRoleWithId = UserRole & WithId
